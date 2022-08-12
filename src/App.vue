@@ -1,32 +1,47 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+	<div id="#app">
+		<router-view />
+	</div>
 </template>
 
-<style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+export default {
+	name: "VueHappyfriDemoApp",
+
+	data() {
+		return {}
+	},
+
+	mounted() {},
+
+	methods: {},
 }
+</script>
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+<style lang="less" scoped>
+@ColorA: red;
+@SizeA: 12px + 12px;
+@min768: ~"(background-color: pink)";
+.box {
+	.box1 {
+		color: @ColorA;
+		font-size: @SizeA;
+	}
+	.box2 {
+		// 复合样式
+		.box1();
+		#module.style();
+	}
+}
+#style-left() {
+	color1: red;
+}
+@s: #style-left[color1];
+#module {
+	.style {
+		background-color: pink;
+	}
+	color: #style-left[color1];
+	color: @s;
 }
 </style>
